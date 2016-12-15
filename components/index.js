@@ -14,6 +14,7 @@ import ColorBox from './ColorBox.js';
 import colorList from '../client/assets/colors.js';
 import ColorRow from './ColorRow.js';
 import colorStore from './colorStore.js';
+import ComplementaryRow from './ComplementaryRow.js'
 import { observer } from 'mobx-react';
 
 //this app relies heavily on React Bootstrap
@@ -151,9 +152,14 @@ var App = observer( class App extends React.Component {
         <FilterBar className="app-nav" handleStateChange={this.handleStateChange} currentFilter={this.state.currentFilter} toggleSubmit={this.toggleSubmitForm} />
 
         <div className="app-main">
-          {colorList.map((colorRow, index) =>
-             <ColorRow colors={colorRow} key={index} row={index}/>
-          )}
+          <div className="color-grid">
+            {colorList.map((colorRow, index) =>
+               <ColorRow colors={colorRow} key={index} row={index}/>
+            )}
+          </div>
+          <div className="app-main-pallets">
+            <ComplementaryRow />
+          </div>
         </div>
 
         <div className="app-sidebar"> {/*  changing this to "app-sidebar-hidden" will hide this */}
