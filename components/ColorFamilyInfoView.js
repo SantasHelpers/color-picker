@@ -2,17 +2,14 @@ import React from 'react';
 import ColorInfoView from './ColorInfoView';
 import {Panel, Button, Row, Col, Grid} from 'react-bootstrap';
 import {Link} from 'react-router';
+import { HEXtoRGB, RGBtoHSL } from './colorCalcHelpers.js';
 
-var hexToRGB = function(hex) {
-  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-  return result ? {
-    r: parseInt(result[1], 16),
-    g: parseInt(result[2], 16),
-    b: parseInt(result[3], 16)
-  } : null;
-};
+// Color Store imports
+import colorStore from './colorStore.js';
+import { observer } from 'mobx-react';
 
-class ColorFamilyInfoView extends React.Component {
+
+var ColorFamilyInfoView = observer(class ColorFamilyInfoView extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -22,7 +19,7 @@ class ColorFamilyInfoView extends React.Component {
     for (var key in this.props.currentFamily) {
       if (key.match(/^color./)) {
         var newObj = {};
-        var rgbObj = hexToRGB(this.props.currentFamily[key]);
+        var rgbObj = HEXtoRGB(this.props.currentFamily[key]);
         var rgb = 'rgb(' + rgbObj.r + ', ' + rgbObj.g + ', ' + rgbObj.b + ')';
         var newObj = {hex: this.props.currentFamily[key], rgb: rgb};
         objArr.push(newObj);
@@ -38,51 +35,51 @@ class ColorFamilyInfoView extends React.Component {
       borderColor1: {
         margin: '1px',
         borderWidth: '2px',
-        borderColor: this.props.currentFamily.color1
+        borderColor: colorStore.currentColor
       },
       bgColor1: {
         margin: '1px',
-        backgroundColor: this.props.currentFamily.color1
+        backgroundColor: colorStore.currentColor
       },
 
       borderColor2: {
         margin: '1px',
         borderWidth: '2px',
-        borderColor: this.props.currentFamily.color2
+        borderColor: colorStore.color2
       },
       bgColor2: {
         margin: '1px',
-        backgroundColor: this.props.currentFamily.color2
+        backgroundColor: colorStore.color2
       },
 
       borderColor3: {
         margin: '1px',
         borderWidth: '2px',
-        borderColor: this.props.currentFamily.color3
+        borderColor: colorStore.color3
       },
       bgColor3: {
         margin: '1px',
-        backgroundColor: this.props.currentFamily.color3
+        backgroundColor: colorStore.color3
       },
 
       borderColor4: {
         margin: '1px',
         borderWidth: '2px',
-        borderColor: this.props.currentFamily.color4
+        borderColor: colorStore.color4
       },
       bgColor4: {
         margin: '1px',
-        backgroundColor: this.props.currentFamily.color4
+        backgroundColor: colorStore.color4
       },
 
       borderColor5: {
         margin: '1px',
         borderWidth: '2px',
-        borderColor: this.props.currentFamily.color5
+        borderColor: colorStore.color5
       },
       bgColor5: {
         margin: '1px',
-        backgroundColor: this.props.currentFamily.color5
+        backgroundColor: colorStore.color5
       }
     };
 
@@ -120,6 +117,6 @@ class ColorFamilyInfoView extends React.Component {
       </div>
     );
   }
-}
+})
 
-module.exports = ColorFamilyInfoView;
+export default ColorFamilyInfoView;
