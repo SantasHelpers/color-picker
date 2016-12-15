@@ -13,11 +13,13 @@ import ElementDisplay from './BootStrap.js';
 import ColorBox from './ColorBox.js';
 import colorList from '../client/assets/colors.js';
 import ColorRow from './ColorRow.js';
+import colorStore from './colorStore.js';
+import { observer } from 'mobx-react';
 
 //this app relies heavily on React Bootstrap
 //https://react-bootstrap.github.io/ for the documentation
 
-class App extends React.Component {
+var App = observer( class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -135,7 +137,9 @@ class App extends React.Component {
 
     var styles = {
       background: {
-        backgroundColor: '#e8f8f5'
+        backgroundColor: colorStore.currentColor,
+        height: 40,
+        width: 40
       }
     }; 
 
@@ -153,13 +157,16 @@ class App extends React.Component {
         </div>
 
         <div className="app-sidebar"> {/*  changing this to "app-sidebar-hidden" will hide this */}
+          <div className="passing-color" style={styles.background} />
           <Chat />
+
+
         </div>
     </div>
  
     );
   }
-}
+})
 
 ReactDOM.render(
   <Router history={browserHistory}>
