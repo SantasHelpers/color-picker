@@ -15,7 +15,7 @@ class ColorRow extends React.Component {
       <div className="color-row">
         {
         colors.map((color, index) =>
-          <ColorBox style={color} key={index} />
+          <ColorBox style={color} key={index} row={this.props.row} col={index}/>
         )}
       </div>
       );

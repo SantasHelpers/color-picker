@@ -148,7 +148,7 @@ class App extends React.Component {
 
         <div className="app-main">
           {colorList.map((colorRow, index) =>
-             <ColorRow colors={colorRow} key={index}/>
+             <ColorRow colors={colorRow} key={index} row={index}/>
           )}
         </div>
 
