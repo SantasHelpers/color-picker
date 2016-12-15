@@ -47,9 +47,9 @@ var RGBtoHSL = function(rgb) {
 console.log(RGBtoHSL([219, 39, 99]));
 
 var HSLtoRGB = function(hsl) {
-  h = h[0] / 100;
-  s = h[1] / 100;
-  l = h[2] / 100;
+  var h = hsl[0] / 100;
+  var s = hsl[1] / 100;
+  var l = hsl[2] / 100;
   var r, g, b;
 
   if (s == 0) {
@@ -75,7 +75,7 @@ var HSLtoRGB = function(hsl) {
 
   return [r * 255, g * 255, b * 255];
 };
-// console.log(HSLtoRGB(193, 67, 28));
+console.log(HSLtoRGB(193, 67, 28));
 
 var componentToHex = function(c) {
   var hex = c.toString(16);
