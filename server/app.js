@@ -10,7 +10,7 @@ var io = require('socket.io')(http);
 
 
 // initializes the data base with colors
-var initalize = require('./initializeDB');
+//var initalize = require('./initializeDB');
 
 app.use(express.static("client"));
 
