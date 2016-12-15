@@ -6,7 +6,7 @@ class ColorStore {
 
   constructor () {
     extendObservable(this, {
-      currentColor: null
+      currentColor: '#eaf2f8'
     })
 
   }
