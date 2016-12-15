@@ -6,8 +6,8 @@ import ColorFamilyInfoView from './ColorFamilyInfoView.js';
 import CreateYourOwn from './CreateYourOwn.js';
 import FilterBar from './FilterBar.js';
 import {Button, Grid} from 'react-bootstrap';
-import Chat from './Chat.js';
-import ElementDisplay from './BootStrap.js';
+// import Chat from './Chat.js';
+// import ElementDisplay from './BootStrap.js';
 
 
 //this app relies heavily on React Bootstrap
@@ -134,8 +134,6 @@ class App extends React.Component {
         </div>
         <div>
           <div className={this.state.appClass}>
-
-          
             <div className={this.state.createClass}>
               <CreateYourOwn/>
             </div>

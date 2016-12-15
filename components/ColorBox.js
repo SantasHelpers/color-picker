@@ -1,6 +1,9 @@
 import React from 'react';
+import colorStore from './colorStore.js';
+import { observer } from 'mobx-react';
 
-class ColorBox extends React.Component {
+
+var ColorBox = observer(class ColorBox extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -11,11 +14,15 @@ class ColorBox extends React.Component {
   }
 
   handleClick() {
+    
+    colorStore.currentColor = this.props.style;
+    console.log('Current Color: ', colorStore.currentColor);
 
   }
 
   toggleHover() {
-    this.setState({hover: !this.state.hover })
+    this.setState({hover: !this.state.hover });
+
   }
 
   render () {
@@ -37,12 +44,15 @@ class ColorBox extends React.Component {
     }
     
     return (
-      <div className={currentClassName} style={styles.background} onMouseEnter={this.toggleHover} onMouseLeave={this.toggleHover}>
+      <div className={currentClassName} style={styles.background} 
+           onMouseEnter={this.toggleHover} 
+           onMouseLeave={this.toggleHover}
+           onClick={this.handleClick}>
       </div>
       );
   }
   //styleSheet1 will have the color passed in from the calling box
   //styleSheet 2 will be the same thing but with highlights and shit
-}
+})
 
 export default ColorBox;
