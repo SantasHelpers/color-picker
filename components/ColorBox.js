@@ -21,7 +21,9 @@ class ColorBox extends React.Component {
   render () {
     var styles = {
       background: {
-        backgroundColor: this.props.style
+        backgroundColor: this.props.style,
+        top: this.props.row * 20,
+        left: this.props.col * 20
       }
     }; 
 
