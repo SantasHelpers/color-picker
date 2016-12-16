@@ -17,11 +17,11 @@ var ComplementaryRow = observer(class ComplementaryRow extends React.Component {
 
     return (
       <div className="complemantary-row">
-          <ComplementaryBox col={1} lum={100}/>
-          <ComplementaryBox col={2} lum={80}/>
-          <ComplementaryBox col={3} lum={60}/>
-          <ComplementaryBox col={4} lum={40}/>
-          <ComplementaryBox col={5} lum={20}/>
+          <ComplementaryBox col={1} lum={10}/>
+          <ComplementaryBox col={2} lum={30}/>
+          <ComplementaryBox col={3} lum={50}/>
+          <ComplementaryBox col={4} lum={70}/>
+          <ComplementaryBox col={5} lum={90}/>
       </div>
       );
   }
