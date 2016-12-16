@@ -10,21 +10,6 @@ var ComplementaryBox = observer(class ComplementaryBox extends React.Component {
 
   constructor (props) {
     super (props);
-    // this.state = {
-    //   color: '#eaf2f8'
-    // };
-  }
-
-  componentWillMount() {
-    // var RGB = HEXtoRGB(colorStore.currentColor);
-    // var HSL = RGBtoHSL(RGB);
-    // HSL = [HSL[0], this.props.col, HSL[2]];
-    // console.log('comp box HSL: ', HSL)
-    // RGB = HSLtoRGB(HSL);
-    // console.log('RGB Value: ', RGB);
-    // var HEX = RGBtoHex(Math.round(RGB[0]), Math.round(RGB[1]), Math.round(RGB[2]));
-    // console.log('ComplementaryBox 222: ', HEX)
-    // this.setState({color: HEX});
   }
 
   render () {
@@ -36,6 +21,8 @@ var ComplementaryBox = observer(class ComplementaryBox extends React.Component {
     var HEX = RGBtoHex(Math.round(RGB[0]), Math.round(RGB[1]), Math.round(RGB[2]));
     console.log('Complementary Box - store valye', colorStore.complementary_a);
     console.log('ComplementaryBox 222: ', HEX);
+
+    console.log(colorStore.complimentary);
 
   
 
