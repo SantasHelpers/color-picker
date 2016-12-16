@@ -32,12 +32,11 @@ var ComplementaryBox = observer(class ComplementaryBox extends React.Component {
     var RGB = HEXtoRGB(colorStore.complementary_a);
     var HSL = RGBtoHSL(RGB);
     HSL = [HSL[0], HSL[1], this.props.lum];
-   // console.log('comp box HSL: ', HSL)
     RGB = HSLtoRGB(HSL);
-  //  console.log('RGB Value: ', RGB);
     var HEX = RGBtoHex(Math.round(RGB[0]), Math.round(RGB[1]), Math.round(RGB[2]));
-  //  console.log('ComplementaryBox 222: ', HEX)
-  //  this.setState({color: HEX});
+    console.log('Complementary Box - store valye', colorStore.complementary_a);
+    console.log('ComplementaryBox 222: ', HEX);
+
   
 
     var style = {
