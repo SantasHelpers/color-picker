@@ -16,8 +16,21 @@ var ColorBox = observer(class ColorBox extends React.Component {
   handleClick() {
 
     colorStore.currentColor = this.props.style;
-    console.log('Current Color: ', colorStore.currentColor);
-
+    colorStore.complimentary = complimentary(currentHSL);
+    colorStore.triad = triad(currentHSL);
+    colorStore.squareTetrad = squareTetrad(currentHSL);
+    colorStore.rectangularTetrad = rectangularTetrad(currentHSL);
+    colorStore.monochromatic = monochromatic(currentHSL);
+    colorStore.analagous = analagous(currentHSL);
+    colorStore.splitComplimentary = splitComplimentary(currentHSL);
+    // console.log('Current Color: ', colorStore.currentColor);
+    // console.log('compbeforeconvert', JSON.stringify(complimentary(currentHSL)));
+    // console.log(triad(currentHSL));
+    // console.log(squareTetrad(currentHSL));
+    // console.log(rectangularTetrad(currentHSL));
+    // console.log('mono', monochromatic(currentHSL));
+    // console.log(analagous(currentHSL));
+    // console.log(splitComplimentary(currentHSL));
   }
 
   toggleHover() {
