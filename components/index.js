@@ -6,6 +6,7 @@ import ColorFamilyInfoView from './ColorFamilyInfoView.js';
 import CreateYourOwn from './CreateYourOwn.js';
 import FilterBar from './FilterBar.js';
 import Preview from './Preview.js';
+import Preview2 from './Preview2.js';
 import {Button, Grid} from 'react-bootstrap';
 import { Router, Route, Link, browserHistory } from 'react-router';
 import ColorBox from './ColorBox.js';
@@ -176,6 +177,7 @@ ReactDOM.render(
   <Router history={browserHistory}>
     <Route path="/" component={App}/>
     <Route path="/preview" component={Preview}/>
+    <Route path="/preview2" component={Preview2}/>
   </Router>,
   document.getElementById('root')
 );

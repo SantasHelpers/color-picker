@@ -63,15 +63,11 @@ var rgbToHsl = function([r, g, b]){
   }
 
   return [h * 100, s * 100, l * 100];
-}
+};
 
 // console.log(RGBtoHSL([219, 39, 99]));
 
 var HSLtoRGB = function(hsl) {
-<<<<<<< f5c3f1b7fc93669c5a5fa5d7e363986afed3d00b
-
-=======
->>>>>>> dynamically generate colors 4,5 in their absence
   var h = hsl[0] / 100;
   var s = hsl[1] / 100;
   var l = hsl[2] / 100;
@@ -274,42 +270,5 @@ var hexToGrayscale = function(hexColor) {
   // console.log('grayscale color' + (i + 1).toString() + ' = ', grayscale);
   return grayscale;
 };
-
-// Helper for selecting font, currently unused!!!!!!
-// var c = document.getElementById('container');
-//
-// var colourIsLight = function (r, g, b) {
-//
-//   // Counting the perceptive luminance
-//   // human eye favors green color...
-//   var a = 1 - (0.299 * r + 0.587 * g + 0.114 * b) / 255;
-//   console.log(a);
-//   return (a < 0.5);
-// }
-//
-// var randomRgb = function () {
-//   var r = /* 189; //*/ Math.floor(Math.random() * 256);
-//   var g = /*60; //*/ Math.floor(Math.random() * 256);
-//   var b = /*151; //*/ Math.floor(Math.random() * 256);
-//   return [r, g, b];
-// };
-//
-// var colourFromRgb = function (r, g, b) {
-//   return 'rgb(' + r + ',' + g + ',' + b + ')';
-// };
-//
-// for (var i = 0; i < 1000; i += 1) {
-//   var el = document.createElement('div');
-//   el.setAttribute('class', 'box');
-//   el.textContent = "Hello";
-//
-//   var bgRgb = randomRgb();
-//   var bgColour = colourFromRgb(bgRgb[0], bgRgb[1], bgRgb[2]);
-//   var textColour = colourIsLight(bgRgb[0], bgRgb[1], bgRgb[2]) ? 'black' : 'white';
-//
-//   el.setAttribute('style', 'background-color: ' + bgColour + '; color: ' + textColour);
-//
-//   c.appendChild(el);
-// }
 
 export {RGBtoHEX, HEXtoRGB, RGBtoHSL, rectangularTetrad, monochromatic, triad,complimentary,squareTetrad,analagous,splitComplimentary, convertMatrix, hexToGrayscale, HSLtoRGB};

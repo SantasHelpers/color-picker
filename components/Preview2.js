@@ -5,7 +5,7 @@ import {HEXtoRGB, rgbToHsl, RGBtoHex, HSLtoRGB, hexToGrayscale} from './colorCal
 import hsltohex from 'hsl-to-hex';
 import hexToHsl from 'hex-to-hsl';
 
-var Preview = ({location: {query}}) => {
+var Preview2 = ({location: {query}}) => {
 
   var styles = {
     headerFooter: {},
@@ -25,6 +25,14 @@ var Preview = ({location: {query}}) => {
     // Temporary for testing purposes - REMOVE THESE TWO LINES
     // delete query.color4;
     // delete query.color5;
+
+    var temp1 = query.color1;
+    var temp2 = query.color2;
+    var temp3 = query.color3;
+
+    query.color1 = temp2;
+    query.color2 = temp3;
+    query.color3 = temp1;
 
     // Dynamic color generation when passed too few colors for a full theme
     if ( hexToGrayscale(query.color2) < .5 ) {
@@ -126,4 +134,4 @@ var Preview = ({location: {query}}) => {
 };
 
 
-export default Preview;
+export default Preview2;
