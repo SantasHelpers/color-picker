@@ -14,7 +14,7 @@ var ColorBox = observer(class ColorBox extends React.Component {
   }
 
   handleClick() {
-    
+
     colorStore.currentColor = this.props.style;
     console.log('Current Color: ', colorStore.currentColor);
 
@@ -32,7 +32,7 @@ var ColorBox = observer(class ColorBox extends React.Component {
         top: this.props.row * 20,
         left: this.props.col * 20
       }
-    }; 
+    };
 
     var classNormal = 'box';
     var classHover = 'box-hover';
@@ -42,14 +42,14 @@ var ColorBox = observer(class ColorBox extends React.Component {
     } else {
       currentClassName = classHover;
     }
-    
+
     return (
-      <div className={currentClassName} style={styles.background} 
-           onMouseEnter={this.toggleHover} 
+      <div className={currentClassName} style={styles.background}
+           onMouseEnter={this.toggleHover}
            onMouseLeave={this.toggleHover}
            onClick={this.handleClick}>
       </div>
-      );
+      );+
   }
   //styleSheet1 will have the color passed in from the calling box
   //styleSheet 2 will be the same thing but with highlights and shit

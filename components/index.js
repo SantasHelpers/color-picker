@@ -14,7 +14,8 @@ import ColorBox from './ColorBox.js';
 import colorList from '../client/assets/colors.js';
 import ColorRow from './ColorRow.js';
 import colorStore from './colorStore.js';
-import ComplementaryRow from './ComplementaryRow.js'
+import ComplementaryRow from './ComplementaryRow.js';
+import Swatch from './Swatch.js';
 import { observer } from 'mobx-react';
 
 //this app relies heavily on React Bootstrap
@@ -142,7 +143,7 @@ var App = observer( class App extends React.Component {
         height: 40,
         width: 40
       }
-    }; 
+    };
 
 
     return (
@@ -160,6 +161,9 @@ var App = observer( class App extends React.Component {
           <div className="app-main-pallets">
             <ComplementaryRow />
           </div>
+          <div className="app-calculated-pallets">
+            <Swatch />
+          </div>
         </div>
 
         <div className="app-sidebar"> {/*  changing this to "app-sidebar-hidden" will hide this */}
@@ -169,7 +173,7 @@ var App = observer( class App extends React.Component {
 
         </div>
     </div>
- 
+
     );
   }
 })
