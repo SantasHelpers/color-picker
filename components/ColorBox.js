@@ -20,17 +20,21 @@ var ColorBox = observer(class ColorBox extends React.Component {
     console.log('handleclick');
     var currentHSL = hexToHsl(this.props.style);
     colorStore.currentColor = this.props.style;
-    console.log('Current Color: ', colorStore.currentColor);
-    console.log('compbeforeconvert', JSON.stringify(complimentary(currentHSL)));
+    // console.log('Current Color: ', colorStore.currentColor);
+    // console.log('compbeforeconvert', JSON.stringify(complimentary(currentHSL)));
     colorStore.complimentary = complimentary(currentHSL);
     colorStore.triad = triad(currentHSL);
-    console.log(triad(currentHSL));
-        // triad: = [];
-        // squareTetrad: = [];
-        // rectangularTetrad: = [];
-        // monochromatic: = [];
-        // analagous: = [];
-        // splitComplimentary: = [];
+    // console.log(triad(currentHSL));
+    // console.log(squareTetrad(currentHSL));
+    colorStore.squareTetrad = squareTetrad(currentHSL);
+    // console.log(rectangularTetrad(currentHSL));
+    colorStore.rectangularTetrad = rectangularTetrad(currentHSL);
+    // console.log('mono', monochromatic(currentHSL));
+    colorStore.monochromatic = monochromatic(currentHSL);
+    // console.log(analagous(currentHSL));
+    colorStore.analagous = analagous(currentHSL);
+    // console.log(splitComplimentary(currentHSL));
+    colorStore.splitComplimentary = splitComplimentary(currentHSL);
   }
 
   toggleHover() {

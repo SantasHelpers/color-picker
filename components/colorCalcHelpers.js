@@ -137,12 +137,12 @@ var analagous = function(hsl) {
   var l = hsl[2];
 
   h = withinCircle(h - 30);
-  results.push(h, s, l);
+  results.push(hsltohex(h, s, l));
+    h = withinCircle(h + 30);
+  results.push(hsltohex(h,s,l));
 
-  results.push(hsl);
-
-  h = withinCircle(h + 60);
-  results.push(h, s, l);
+  h = withinCircle(h + 30);
+  results.push(hsltohex(h, s, l));
   return results;
 };
 
@@ -154,9 +154,9 @@ var splitComplimentary = function(hsl) {
   var h1 = withinCircle(h - 150);
   var h2 = withinCircle(h + 150);
 
-  results.push([h1, s, l]);
-  results.push([h, s, l]);
-  results.push([h2, s, l]);
+  results.push(hsltohex(h1, s, l));
+  results.push(hsltohex(h, s, l));
+  results.push(hsltohex(h2, s, l));
   return results;
 };
 
@@ -169,7 +169,7 @@ var squareTetrad = function(hsl) {
   for (var i = 0; i < 4; i++) {
     h = withinCircle(h + 90);
 
-    results.push([h, s, l]);
+    results.push(hsltohex(h, s, l));
   }
   return results;
 };
@@ -181,7 +181,7 @@ var monochromatic = function(hsl) {
   var l = hsl[2];
 
   for (var i = 0; i <= 100; i += 25) {
-    results.push([h, s, i]);
+    results.push(hsltohex(h, s, i));
   }
   return results;
 };
@@ -194,15 +194,15 @@ var rectangularTetrad = function(hsl) {
   var l = hsl[2];
 
   var temp = withinCircle(h - 30);
-  results.push([temp, s, l]);
+  results.push(hsltohex(temp, s, l));
 
-  results.push(hsl);
+  results.push(hsltohex(hsl[0],hsl[1],hsl[2]));
 
   temp = withinCircle(h + 150);
-  results.push([temp, s, l]);
+  results.push(hsltohex(temp, s, l));
 
   temp = withinCircle(h + 180);
-  results.push([temp, s, l]);
+  results.push(hsltohex(temp, s, l));
 
   return results;
 };
