@@ -1,53 +1,66 @@
 import {Nav, Navbar, NavItem, NavDropdown, MenuItem, Button} from 'react-bootstrap';
 import React from 'react';
 import FilterBar from './FilterBar.js';
-import {HEXtoRGB, RGBtoHSL} from './colorCalcHelpers.js';
+import {HEXtoRGB, RGBtoHSL, hexToGrayscale} from './colorCalcHelpers.js';
 
 var Preview = ({location: {query}}) => {
 
   var styles = {
-    headerfooter: {
-      backgroundColor: query.color1,
-      borderBottom: 'solid ' + query.color5 + ' 2px'
-    },
-    leftBackground: {
-      backgroundColor: query.color2
-    },
-    rightBackground: {
-      backgroundColor: query.color3
-    },
-    headers: {
-      color: query.color4
-    },
-    links: {
-      color: query.color5
-    }
+    headerFooter: {},
+    left: {},
+    right: {},
+    headers: {},
+    links: {}
   };
 
-  // This returns black or white depending on
-  var setHeaderTextColor = function(hexColor) {
-    // console.log('Calling setHeaderTextColor with: ', hexColor);
-    // console.log(HEXtoRGB);
-    // console.log(HEXtoRGB(hexColor));
-    var backgroundLightness = RGBtoHSL(HEXtoRGB(hexColor))[2];
-    // console.log(backgroundLightness);
-    if (backgroundLightness > 60) {
-      styles.headerfooter.color = 'black';
-    } else {
-      styles.headerfooter.color = 'white';
+  var setStyles = function() {
+    var i = 0;
+    for (var key in query) {
+      i++;
     }
-  }(query.color1);
+    var colorCount = i - 4;
+
+    //Grayscale is a percentage, as it approaches 0, it becomes closer to black;
+    if ( hexToGrayscale(query.color1) < .5 ) {
+      styles.headerFooter.color = 'white';
+    } else {
+      styles.headerFooter.color = 'black';
+    }
+    if ( hexToGrayscale(query.color3) < .5 ) {
+      styles.right.color = 'white';
+    } else {
+      styles.right.color = 'black';
+    }
+
+    styles.headerFooter.backgroundColor = query.color1;
+    styles.left.backgroundColor = query.color2;
+    styles.right.backgroundColor = query.color3;
+    styles.headers.color = query.color4;
+    styles.headerFooter.borderBottom = 'solid ' + query.color5 + ' 2px';
+    styles.links.color = query.color5;
+
+  }();
+
+  // This returns black or white depending on the darkness of the backgroundColor
+  // var setHeaderTextColor = function(hexColor) {
+  //   var backgroundLightness = RGBtoHSL(HEXtoRGB(hexColor))[2];
+  //   if (backgroundLightness > 50) {
+  //     styles.headerFooter.color = 'black';
+  //   } else {
+  //     styles.headerFooter.color = 'white';
+  //   }
+  // }(query.color1);
 
   return (
     <div id="container">
       <div><FilterBar/></div>
-      <main id="center" class="column" style={styles.headerfooter}>
+      <main id="center" class="column" style={styles.headerFooter}>
         <article>
           <h1>Heading</h1>
         </article>
       </main>
       <div id="columnholder">
-        <nav id="left"class="column" style={styles.leftBackground}>
+        <nav id="left"class="column" style={styles.left}>
           <h3 style={styles.headers}>Left heading</h3>
           <ul>
             <li><a style={styles.links} href="#">Link 1</a></li>
@@ -72,8 +85,16 @@ var Preview = ({location: {query}}) => {
             <br/><br/>Sed nec porttitor velit, non aliquam ipsum. Suspendisse aliquam cursus lorem. Praesent cursus non ipsum a tincidunt. Cras commodo nunc et lectus iaculis luctus. Phasellus dapibus consequat odio, vel mattis ex elementum quis. Nunc id pulvinar nibh, eget fermentum neque. Nam hendrerit leo in sodales hendrerit. Praesent posuere velit vel lacus facilisis vehicula.
             <br/><br/>Phasellus id molestie ex. Nulla ac semper ante. Nam venenatis, dolor tempor fringilla pretium, enim lorem posuere lectus, vitae viverra purus sapien quis turpis. Nullam a viverra tellus, id mattis ligula. Aenean luctus eu ante et gravida. Vivamus hendrerit quam tellus, eget pretium neque efficitur in. Donec a risus quis erat laoreet mollis. Aenean vitae egestas mi.
             <br/><br/>Nullam lobortis pellentesque sem ut finibus. Phasellus sed vehicula eros. Sed mollis rhoncus diam, non cursus dolor scelerisque ac. Ut blandit quam ut semper aliquam. Maecenas scelerisque a elit id lobortis. Phasellus ut congue orci, nec dapibus tellus. Curabitur eu mauris placerat, consectetur arcu eget, viverra felis. Aenean interdum, justo vitae lobortis commodo, nibh erat aliquam tellus, sed sagittis purus sem sed eros. Praesent elementum nisi eu arcu sodales ultricies. Sed luctus luctus turpis, ac dapibus nisi finibus eu. Nulla tincidunt justo eget fringilla luctus. Ut porttitor faucibus turpis quis vestibulum. Donec congue, est sed tincidunt sagittis, ligula nisi interdum mauris, id efficitur sem tortor ut ante. Nullam eu fringilla turpis, sed pulvinar velit.
+            {/*<table>
+              <th style={styles.headers}>TableHead</th>
+              <tr className='trOdd' style={styles.headerFooter}><td>gobble</td><td>de</td><td>gook</td></tr>
+              <tr className='trEven' style={styles.right}><td>foo</td><td>baz</td><td>bar</td></tr>
+              <tr className='trOdd' style={styles.headerFooter}><td>gobble</td><td>de</td><td>gook</td></tr>
+              <tr className='trEven' style={styles.right}><td>foo</td><td>baz</td><td>bar</td></tr>
+              <tr className='trOdd' style={styles.headerFooter}><td>gobble</td><td>de</td><td>gook</td></tr>
+            </table>*/}
         </div>
-        <div id="right" class="column" style={styles.rightBackground}>
+        <div id="right" class="column" style={styles.right}>
           <h3 style={styles.headers}>What is Lorem Ipsum</h3>
             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
           <h3 style={styles.headers}>Why do we use it</h3>
@@ -81,7 +102,7 @@ var Preview = ({location: {query}}) => {
         </div>
       </div>
     <div id="footer-wrapper">
-      <footer id="footer" style={styles.headerfooter}><p>Footer...</p></footer>
+      <footer id="footer" style={styles.headerFooter}><p>Footer...</p></footer>
     </div>
   </div>
   );

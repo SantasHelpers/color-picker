@@ -29,59 +29,57 @@ var ColorFamilyInfoView = observer(class ColorFamilyInfoView extends React.Compo
   }
 
   render() {
-    // console.log(this.props.currentFamily);
+    var styles = {
+      borderColor1: {
+        margin: '1px',
+        borderWidth: '2px',
+        borderColor: this.props.currentFamily.color1
+      },
+      bgColor1: {
+        margin: '1px',
+        backgroundColor: this.props.currentFamily.color1
+      },
 
-    // var styles = {
-    //   borderColor1: {
-    //     margin: '1px',
-    //     borderWidth: '2px',
-    //     borderColor: colorStore.currentColor
-    //   },
-    //   bgColor1: {
-    //     margin: '1px',
-    //     backgroundColor: colorStore.currentColor
-    //   },
+      borderColor2: {
+        margin: '1px',
+        borderWidth: '2px',
+        borderColor: this.props.currentFamily.color2
+      },
+      bgColor2: {
+        margin: '1px',
+        backgroundColor: this.props.currentFamily.color2
+      },
 
-    //   borderColor2: {
-    //     margin: '1px',
-    //     borderWidth: '2px',
-    //     borderColor: colorStore.currentFamily.color2
-    //   },
-    //   bgColor2: {
-    //     margin: '1px',
-    //     backgroundColor: colorStore.currentFamily.color2
-    //   },
+      borderColor3: {
+        margin: '1px',
+        borderWidth: '2px',
+        borderColor: this.props.currentFamily.color3
+      },
+      bgColor3: {
+        margin: '1px',
+        backgroundColor: this.props.currentFamily.color3
+      },
 
-    //   borderColor3: {
-    //     margin: '1px',
-    //     borderWidth: '2px',
-    //     borderColor: colorStore.currentFamily.color3
-    //   },
-    //   bgColor3: {
-    //     margin: '1px',
-    //     backgroundColor: colorStore.currentFamily.color3
-    //   },
+      borderColor4: {
+        margin: '1px',
+        borderWidth: '2px',
+        borderColor: this.props.currentFamily.color4
+      },
+      bgColor4: {
+        margin: '1px',
+        backgroundColor: this.props.currentFamily.color4
+      },
 
-    //   borderColor4: {
-    //     margin: '1px',
-    //     borderWidth: '2px',
-    //     borderColor: colorStore.currentFamily.color4
-    //   },
-    //   bgColor4: {
-    //     margin: '1px',
-    //     backgroundColor: colorStore.currentFamily.color4
-    //   },
-
-    //   borderColor5: {
-    //     margin: '1px',
-    //     borderWidth: '2px',
-    //     borderColor: colorStore.currentFamily.color5
-    //   },
-    //   bgColor5: {
-    //     margin: '1px',
-    //     backgroundColor: colorStore.currentFamily.color5
-    //   }
-    // };
+      borderColor5: {
+        margin: '1px',
+        borderWidth: '2px',
+        borderColor: this.props.currentFamily.color5
+      },
+      bgColor5: {
+        margin: '1px',
+        backgroundColor: this.props.currentFamily.color5
+      }
+    };
 
     return (
       <div className="sidebar-content">
@@ -102,7 +100,6 @@ var ColorFamilyInfoView = observer(class ColorFamilyInfoView extends React.Compo
             <Button className="fill-button" style={{'backgroundColor': colorStore.color3}}> Color 3 </Button>
             <Button className="fill-button" style={{'backgroundColor': colorStore.color4}}> Color 4 </Button>
             <Button className="fill-button" style={{'backgroundColor': colorStore.color5}}> Color 5 </Button> <br/><br/>
-
           <Panel className="border-button" className='previewLink'>
             <Link to={'/preview'}>PREVIEW 2</Link>
           </Panel>
@@ -111,12 +108,10 @@ var ColorFamilyInfoView = observer(class ColorFamilyInfoView extends React.Compo
             <Button className="border-button" style={{'borderColor': colorStore.color3}}> Color 3 </Button>
             <Button className="border-button" style={{'borderColor': colorStore.color4}}> Color 4 </Button>
             <Button className="border-button" style={{'borderColor': colorStore.color5}}> Color 5 </Button>
-
         </div>
-
       </div>
     );
   }
-})
+});
 
 export default ColorFamilyInfoView;

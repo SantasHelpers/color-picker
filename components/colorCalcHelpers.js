@@ -233,7 +233,18 @@ var convertMatrix = function(array){
     results.push(inner);
   }
 }
-//
+
+var hexToGrayscale = function(hexColor) {
+  var grayScaleConstants = [.3, .59, .11];
+  var rgbArray = HEXtoRGB(hexColor);
+  var sum = 0;
+  for (let j = 0; j < rgbArray.length; j++) {
+    sum += grayScaleConstants[j] * rgbArray[j];
+  }
+  var grayscale = (sum / 245);
+  // console.log('grayscale color' + (i + 1).toString() + ' = ', grayscale);
+  return grayscale;
+};
 
 // Helper for selecting font, currently unused!!!!!!
 // var c = document.getElementById('container');
@@ -272,5 +283,4 @@ var convertMatrix = function(array){
 //   c.appendChild(el);
 // }
 
-export {RGBtoHEX,HEXtoRGB, RGBtoHSL, rectangularTetrad, monochromatic, triad,complimentary,squareTetrad,analagous,splitComplimentary, convertMatrix};
-
+export {RGBtoHEX, HEXtoRGB, RGBtoHSL, rectangularTetrad, monochromatic, triad,complimentary,squareTetrad,analagous,splitComplimentary, convertMatrix, hexToGrayscale};
