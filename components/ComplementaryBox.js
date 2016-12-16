@@ -16,7 +16,6 @@ var ComplementaryBox = observer(class ComplementaryBox extends React.Component {
 
 
   render () {
-
     var hsl = hextohsl(colorStore.currentColor);
     var hex = hsltohex(hsl[0], hsl[1], this.props.lum);
 
@@ -29,7 +28,7 @@ var ComplementaryBox = observer(class ComplementaryBox extends React.Component {
     console.log('complemantary-box : ', hex);
 
     return (
-      <div className="complemantary-box" style={style.background}></div>
+      <div className="complementary-box" style={style.background}></div>
       );
   }
 })

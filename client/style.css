@@ -22,15 +22,32 @@ body {
   z-index: 1000;
 }
 
+.label {
+  color: gray;
+  font-size: 12px;
+  font-weight: 400;
+  font-stretch: semi-expanded;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
   /*float:left;
   display: inline-flex; */
   /*
   set top and left in our box factory
   */
 
+.complementary-row {
+  width: 100%;
+  height: 70px;
+  border-color: grey;
+  border-width: 1px;
+  border-style: solid;
+  background-color: #abb2ba;
+}
+
 
 .complementary-box {
-  top: 200px;
+  position: relative;
+  top: 10px;
   left: 50px;
   height: 50px;
   width: 50px;
