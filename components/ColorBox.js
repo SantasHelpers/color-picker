@@ -38,6 +38,7 @@ var ColorBox = observer(class ColorBox extends React.Component {
 
     }
 
+
   toggleHover() {
     this.setState({hover: !this.state.hover });
 
