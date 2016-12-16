@@ -29,7 +29,7 @@ body {
   */
 
 
-.complemantary-box {
+.complementary-box {
   top: 200px;
   left: 50px;
   height: 50px;
@@ -137,6 +137,7 @@ body {
 
 .color-family-info {
   margin-top: 20px;
+  right: 0;
 }
 
 .tooltip-inner {
