@@ -25,16 +25,16 @@ var ColorBox = observer(class ColorBox extends React.Component {
      colorStore.triad = triad(currentHSL);
      // console.log(triad(currentHSL));
      // console.log(squareTetrad(currentHSL));
-     colorStore.squareTetrad = squareTetrad(currentHSL);
-     console.log(rectangularTetrad(currentHSL));
+     colorStore.tetrad = squareTetrad(currentHSL);
+     // console.log(rectangularTetrad(currentHSL));
      colorStore.rectangularTetrad = rectangularTetrad(currentHSL);
-     console.log('mono', monochromatic(currentHSL));
-     colorStore.monochromatic = monochromatic(currentHSL);
-     console.log(analagous(currentHSL));
+     // console.log('mono', monochromatic(currentHSL));
+     colorStore.monochrome = monochromatic(currentHSL);
+     // console.log(analagous(currentHSL));
      colorStore.analagous = analagous(currentHSL);
-     console.log(splitComplimentary(currentHSL));
+     // console.log(splitComplimentary(currentHSL));
      colorStore.splitComplimentary = splitComplimentary(currentHSL);
-     console.log('Current Color: ', colorStore.currentColor);
+     // console.log('Current Color: ', colorStore.currentColor);
 
     }
 
