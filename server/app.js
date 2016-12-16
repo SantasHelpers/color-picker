@@ -9,8 +9,6 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
 
-// initializes the data base with colors
-//var initalize = require('./initializeDB');
 
 app.use(express.static("client"));
 
