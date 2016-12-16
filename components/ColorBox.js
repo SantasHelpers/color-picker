@@ -1,6 +1,7 @@
 import React from 'react';
 import colorStore from './colorStore.js';
 import { observer } from 'mobx-react';
+
 import {RGBtoHEX, HEXtoRGB, RGBtoHSL, rectangularTetrad, monochromatic, triad,complimentary,squareTetrad,analagous,splitComplimentary, convertMatrix} from './colorCalcHelpers.js';
 import hexToHsl from 'hex-to-hsl';
 import hsltohex from 'hsl-to-hex';
@@ -14,6 +15,7 @@ var ColorBox = observer(class ColorBox extends React.Component {
     this.toggleHover = this.toggleHover.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
+
 
     handleClick() {
      console.log('handleclick');
