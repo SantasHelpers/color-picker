@@ -16,6 +16,9 @@ import ComplementaryRow from './ComplementaryRow.js';
 import Swatch from './Swatch.js';
 import { observer } from 'mobx-react';
 import { HEXtoRGB } from './colorCalcHelpers.js'
+import TriadRow from './TriadRow.js';
+import TetradRow from './TetradRow.js';
+
 //this app relies heavily on React Bootstrap
 //https://react-bootstrap.github.io/ for the documentation
 
@@ -39,6 +42,7 @@ var App = observer( class App extends React.Component {
 
 
   //Filter display based on navbar choices
+  // we can probably remove this one all together since we are 
   handleStateChange (color) {
     var filteredColorFamilies = [];
 
@@ -46,35 +50,35 @@ var App = observer( class App extends React.Component {
       currentFilter: color,
     });
 
-    this.state.allFamilies.forEach(function (obj) {
-      var include = false;
-      for (var key in obj) {
-        if (key.slice(0, 5) === 'color') {
-          var colorRgb = this.HEXtoRGB(obj[key], 16);
-          if (color === 'red') {
-            if (colorRgb.red > (1.5 * colorRgb.blue) && colorRgb.red > (1.5 * colorRgb.green))
-              include = true;
-          }
-          if (color === 'blue') {
-            if (colorRgb.blue > (1.5 * colorRgb.red) && colorRgb.blue > (1.5 * colorRgb.green))
-              include = true;
-          }
-          if (color === 'green') {
-            if (colorRgb.green > (1.5 * colorRgb.blue) && colorRgb.green > (1.5 * colorRgb.red))
-              include = true;
-          }
-          if (color === 'all') {
-            include = true;
-          }
-        }
-      }
-      if (include === true) {
-        filteredColorFamilies.push(obj);
-      }
-    }.bind(this));
-    this.setState({
-      colorFamilies: filteredColorFamilies
-    });
+    // this.state.allFamilies.forEach(function (obj) {
+    //   var include = false;
+    //   for (var key in obj) {
+    //     if (key.slice(0, 5) === 'color') {
+    //       var colorRgb = this.HEXtoRGB(obj[key], 16);
+    //       if (color === 'red') {
+    //         if (colorRgb.red > (1.5 * colorRgb.blue) && colorRgb.red > (1.5 * colorRgb.green))
+    //           include = true;
+    //       }
+    //       if (color === 'blue') {
+    //         if (colorRgb.blue > (1.5 * colorRgb.red) && colorRgb.blue > (1.5 * colorRgb.green))
+    //           include = true;
+    //       }
+    //       if (color === 'green') {
+    //         if (colorRgb.green > (1.5 * colorRgb.blue) && colorRgb.green > (1.5 * colorRgb.red))
+    //           include = true;
+    //       }
+    //       if (color === 'all') {
+    //         include = true;
+    //       }
+    //     }
+    //   }
+    //   if (include === true) {
+    //     filteredColorFamilies.push(obj);
+    //   }
+    // }.bind(this));
+    // this.setState({
+    //   colorFamilies: filteredColorFamilies
+    // });
   }
 
   setCurrentFamily(familyData) {
@@ -149,8 +153,9 @@ var App = observer( class App extends React.Component {
           </div>
           <div className="app-main-pallets">
             <ComplementaryRow />
+            <TriadRow />
+            <TetradRow />
           </div>
- 
         </div>
         <div className="app-sidebar"> {/*  changing this to "app-sidebar-hidden" will hide this */}
           <div className="passing-color" style={styles.background} />
