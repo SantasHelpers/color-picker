@@ -15,12 +15,13 @@ class ColorStore {
         color4: '#eaf2f8',
         color5: '#eaf2f8',
         complimentary: [],
-        triad: [],
-        squareTetrad: [],
-        rectangularTetrad: [],
-        monochromatic: [],
-        analagous: [],
-        splitComplimentary: []
+        sideBarBaseColor: '#eaf2f8',
+
+        triad: ['#24E2E2', '#D82ED5', '#D8452E'],
+        tetrad: ['#2ED0D8', '#D0662E', '#89D02E',
+        '#BA2ED0'],
+        monochrome: ['#CD5C5C', '#F08080', '#FA8072', '#E9967A', '#FFA07A', '#CD5C5D', '#F08081', '#FA8073', '#E9967B', '#FFA07B' ],
+        analagous: ['#24E2E2', '#80E6CC', '#0BE5AD']
       })
     }
     // MOBX mutates state directly in the store

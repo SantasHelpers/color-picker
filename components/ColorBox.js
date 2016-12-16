@@ -1,10 +1,8 @@
 import React from 'react';
 import colorStore from './colorStore.js';
 import { observer } from 'mobx-react';
-import {RGBtoHEX, HEXtoRGB, RGBtoHSL, rectangularTetrad, monochromatic, triad,complimentary,squareTetrad,analagous,splitComplimentary, convertMatrix} from './colorCalcHelpers.js';
-import hexToHsl from 'hex-to-hsl';
-import hsltohex from 'hsl-to-hex';
-
+import hextohsl from 'hex-to-hsl';
+import { complimentary, triad, squareTetrad, rectangularTetrad, monochromatic, analagous, splitComplimentary } from './colorCalcHelpers.js';
 
 var ColorBox = observer(class ColorBox extends React.Component {
   constructor(props) {
@@ -66,7 +64,7 @@ var ColorBox = observer(class ColorBox extends React.Component {
            onMouseLeave={this.toggleHover}
            onClick={this.handleClick}>
       </div>
-      );+
+      );
   }
   //styleSheet1 will have the color passed in from the calling box
   //styleSheet 2 will be the same thing but with highlights and shit

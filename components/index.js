@@ -150,9 +150,7 @@ var App = observer( class App extends React.Component {
           <div className="app-main-pallets">
             <ComplementaryRow />
           </div>
-          <div className="app-calculated-pallets">
-            <Swatch />
-          </div>
+ 
         </div>
         <div className="app-sidebar"> {/*  changing this to "app-sidebar-hidden" will hide this */}
           <div className="passing-color" style={styles.background} />
