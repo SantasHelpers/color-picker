@@ -5,7 +5,6 @@ import colorStore from './colorStore.js';
 import { observer } from 'mobx-react';
 import hsltohex from 'hsl-to-hex';
 import hextohsl from 'hex-to-hsl';
-import { HEXtoRGB, RGBtoHSL, HSLtoRGB, RGBtoHex } from './colorCalcHelpers.js';
 
 
 var ComplementaryBox = observer(class ComplementaryBox extends React.Component {
@@ -20,19 +19,14 @@ var ComplementaryBox = observer(class ComplementaryBox extends React.Component {
 
     var hsl = hextohsl(colorStore.currentColor);
     var hex = hsltohex(hsl[0], hsl[1], this.props.lum);
-  
 
     var style = {
       background : {
-
         backgroundColor: hex
       }
     };
 
     console.log('complemantary-box : ', hex);
-
-    // turn everything to HSL and look at the L value
-    // keep H and S and change the L value
 
     return (
       <div className="complemantary-box" style={style.background}></div>

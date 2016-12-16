@@ -1,8 +1,10 @@
 import React from 'react';
 import colorStore from './colorStore.js';
 import { observer } from 'mobx-react';
-import hextohsl from 'hex-to-hsl';
-import { complimentary, triad, squareTetrad, rectangularTetrad, monochromatic, analagous, splitComplimentary } from './colorCalcHelpers.js';
+
+import {RGBtoHEX, HEXtoRGB, RGBtoHSL, rectangularTetrad, monochromatic, triad,complimentary,squareTetrad,analagous,splitComplimentary, convertMatrix} from './colorCalcHelpers.js';
+import hexToHsl from 'hex-to-hsl';
+import hsltohex from 'hsl-to-hex';
 
 var ColorBox = observer(class ColorBox extends React.Component {
   constructor(props) {
@@ -14,26 +16,29 @@ var ColorBox = observer(class ColorBox extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick() {
-    console.log('handleclick');
-    var currentHSL = hexToHsl(this.props.style);
-    colorStore.currentColor = this.props.style;
-    colorStore.complimentary = complimentary(currentHSL);
-    colorStore.triad = triad(currentHSL);
-    colorStore.squareTetrad = squareTetrad(currentHSL);
-    colorStore.rectangularTetrad = rectangularTetrad(currentHSL);
-    colorStore.monochromatic = monochromatic(currentHSL);
-    colorStore.analagous = analagous(currentHSL);
-    colorStore.splitComplimentary = splitComplimentary(currentHSL);
-    // console.log('Current Color: ', colorStore.currentColor);
-    // console.log('compbeforeconvert', JSON.stringify(complimentary(currentHSL)));
-    // console.log(triad(currentHSL));
-    // console.log(squareTetrad(currentHSL));
-    // console.log(rectangularTetrad(currentHSL));
-    // console.log('mono', monochromatic(currentHSL));
-    // console.log(analagous(currentHSL));
-    // console.log(splitComplimentary(currentHSL));
-  }
+
+    handleClick() {
+     console.log('handleclick');
+     var currentHSL = hexToHsl(this.props.style);
+      colorStore.currentColor = this.props.style;
+     // console.log('Current Color: ', colorStore.currentColor);
+     // console.log('compbeforeconvert', JSON.stringify(complimentary(currentHSL)));
+     colorStore.complimentary = complimentary(currentHSL);
+     colorStore.triad = triad(currentHSL);
+     // console.log(triad(currentHSL));
+     // console.log(squareTetrad(currentHSL));
+     colorStore.tetrad = squareTetrad(currentHSL);
+     // console.log(rectangularTetrad(currentHSL));
+     colorStore.rectangularTetrad = rectangularTetrad(currentHSL);
+     // console.log('mono', monochromatic(currentHSL));
+     colorStore.monochrome = monochromatic(currentHSL);
+     // console.log(analagous(currentHSL));
+     colorStore.analagous = analagous(currentHSL);
+     // console.log(splitComplimentary(currentHSL));
+     colorStore.splitComplimentary = splitComplimentary(currentHSL);
+     // console.log('Current Color: ', colorStore.currentColor);
+
+    }
 
   toggleHover() {
     this.setState({hover: !this.state.hover });

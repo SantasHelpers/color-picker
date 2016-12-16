@@ -234,7 +234,7 @@ nav ul a {
 
 .app-calculated-pallets {
   position: relative;
-  top: 200px;
+  top: 400px;
   align-items: center;
   justify-content: center;
 }
@@ -257,10 +257,10 @@ nav ul a {
 
 .swatchBox-hover {
   position: relative;
-  top: -5px;
+/*  top: -5px;
   left: -10px;
   height: 30px;
-  width: 30px;
+  width: 30px;*/
   border-radius: 2px;
   z-index: 1000;
   /*float:left;
