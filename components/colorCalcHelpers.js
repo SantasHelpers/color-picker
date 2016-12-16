@@ -46,20 +46,21 @@ var RGBtoHSL = function(rgb) {
 // console.log(RGBtoHSL([219, 39, 99]));
 
 var HSLtoRGB = function(hsl) {
-  var h = hsl[0] / 360;
+
+  var h = hsl[0] / 100;
   var s = hsl[1] / 100;
   var l = hsl[2] / 100;
   var r, g, b;
 
-  if (s === 0) {
-    var r = g = b = l; // achromatic
+  if (s == 0) {
+    r = g = b = l; // achromatic
   } else {
     function hue2rgb(p, q, t) {
-      if (t < 0) { t += 1; }
-      if (t > 1) { t -= 1; }
-      if (t < 1 / 6) { return p + (q - p) * 6 * t; }
-      if (t < 1 / 2) { return q; }
-      if (t < 2 / 3) { return p + (q - p) * (2 / 3 - t) * 6; }
+      if (t < 0) t += 1;
+      if (t > 1) t -= 1;
+      if (t < 1 / 6) return p + (q - p) * 6 * t;
+      if (t < 1 / 2) return q;
+      if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
       return p;
     }
 
@@ -272,3 +273,4 @@ var convertMatrix = function(array){
 // }
 
 export {RGBtoHEX,HEXtoRGB, RGBtoHSL, rectangularTetrad, monochromatic, triad,complimentary,squareTetrad,analagous,splitComplimentary, convertMatrix};
+

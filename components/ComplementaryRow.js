@@ -9,25 +9,19 @@ import { HEXtoRGB, RGBtoHSL } from './colorCalcHelpers.js';
 var ComplementaryRow = observer(class ComplementaryRow extends React.Component {
 
   constructor (props) {
-    super (props);
-  }
-
-  componentWillMount () {
-
-   var RGB = HEXtoRGB(colorStore.currentColor);
-   var HSL = RGBtoHSL(RGB);
-   console.log('component will mount: ', HSL);
+    super (props); 
   }
 
   render () {
 
+
     return (
       <div className="complemantary-row">
-          <ComplementaryBox col={1}/>
-          <ComplementaryBox col={2}/>
-          <ComplementaryBox col={3}/>
-          <ComplementaryBox col={4}/>
-          <ComplementaryBox col={5}/>
+          <ComplementaryBox col={1} lum={100}/>
+          <ComplementaryBox col={2} lum={80}/>
+          <ComplementaryBox col={3} lum={60}/>
+          <ComplementaryBox col={4} lum={40}/>
+          <ComplementaryBox col={5} lum={20}/>
       </div>
       );
   }

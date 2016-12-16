@@ -8,8 +8,6 @@ import FilterBar from './FilterBar.js';
 import Preview from './Preview.js';
 import {Button, Grid} from 'react-bootstrap';
 import { Router, Route, Link, browserHistory } from 'react-router';
-import Chat from './Chat.js';
-import ElementDisplay from './BootStrap.js';
 import ColorBox from './ColorBox.js';
 import colorList from '../client/assets/colors.js';
 import ColorRow from './ColorRow.js';
@@ -17,7 +15,7 @@ import colorStore from './colorStore.js';
 import ComplementaryRow from './ComplementaryRow.js';
 import Swatch from './Swatch.js';
 import { observer } from 'mobx-react';
-
+import { HEXtoRGB } from './colorCalcHelpers.js'
 //this app relies heavily on React Bootstrap
 //https://react-bootstrap.github.io/ for the documentation
 
@@ -39,15 +37,6 @@ var App = observer( class App extends React.Component {
     this.toggleSubmitForm = this.toggleSubmitForm.bind(this);
   }
 
-  //Convert hex values to rgb object
-  hexToRGB(hex) {
-    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-    return result ? {
-      red: parseInt(result[1], 16),
-      green: parseInt(result[2], 16),
-      blue: parseInt(result[3], 16)
-    } : null;
-  }
 
   //Filter display based on navbar choices
   handleStateChange (color) {
@@ -61,7 +50,7 @@ var App = observer( class App extends React.Component {
       var include = false;
       for (var key in obj) {
         if (key.slice(0, 5) === 'color') {
-          var colorRgb = this.hexToRGB(obj[key], 16);
+          var colorRgb = this.HEXtoRGB(obj[key], 16);
           if (color === 'red') {
             if (colorRgb.red > (1.5 * colorRgb.blue) && colorRgb.red > (1.5 * colorRgb.green))
               include = true;

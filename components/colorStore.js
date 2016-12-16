@@ -4,7 +4,6 @@ import { extendObservable } from 'mobx';
 
 class ColorStore {
 
-
  // MOBX mutates state directly in the store
  // good resource  http://www.robinwieruch.de/mobx-react/
   constructor() {
