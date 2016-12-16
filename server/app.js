@@ -4,10 +4,10 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var ColorFamily = require('./db.js');
 
-//used for sockets
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
 
+
+// initializes the data base with colors
+// var initalize = require('./initializeDB');
 
 
 app.use(express.static("client"));
@@ -26,13 +26,6 @@ app.get('/api/colors', function(req, res) {
   });
 });
 
-io.on('connection', function(socket){
-    socket.on('chat message', function(msg){
-      console.log('message: ' + msg);
-      // add chat to DB
-      io.emit('chat message', msg);
-  });
-});
 
 
 app.post('/api/colors', function(req, res) {
@@ -69,7 +62,7 @@ app.post('/api/colors', function(req, res) {
 
 
 // dont know if we need them both listening on port 3000?????
-http.listen(3000, function(){
+app.listen(3000, function(){
   console.log('listening on *:3000');
 });
 
