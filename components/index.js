@@ -43,7 +43,7 @@ var App = observer( class App extends React.Component {
 
 
   //Filter display based on navbar choices
-  // we can probably remove this one all together since we are 
+  // we can probably remove this one all together since we are
   handleStateChange (color) {
     var filteredColorFamilies = [];
 
@@ -86,7 +86,7 @@ var App = observer( class App extends React.Component {
     this.setState({
       currentFamily: familyData
     });
-    console.log('these are app state', this.state);
+    // console.log('these are app state', this.state);
   }
 
   toggleSubmitForm() {
@@ -141,16 +141,19 @@ var App = observer( class App extends React.Component {
 
 
     return (
-
-
       <div className="app-body">
         <FilterBar className="app-nav" handleStateChange={this.handleStateChange} currentFilter={this.state.currentFilter} toggleSubmit={this.toggleSubmitForm} />
-
         <div className="app-main">
           <div className="color-grid">
             {colorList.map((colorRow, index) =>
                <ColorRow colors={colorRow} key={index} row={index}/>
             )}
+        <div>
+          <div className={this.state.appClass}>
+            <div className={this.state.createClass}>
+            <CreateYourOwn/>
+            </div>
+            <ColorFamilyView setCurrentFamily={this.setCurrentFamily.bind(this)} colorFamilies={/*[{color1:'#000000', color2:'#586F7C', color3:'#B8DBD9'}]*/this.state.colorFamilies} toggleSidebarOn={this.toggleSidebarOn}/>
           </div>
           <div className="app-main-pallets">
             <ComplementaryRow />
@@ -162,9 +165,6 @@ var App = observer( class App extends React.Component {
         <div className="app-sidebar"> {/*  changing this to "app-sidebar-hidden" will hide this */}
           <div className="passing-color" style={styles.background} />
             <ColorFamilyInfoView currentFamily={this.state.currentFamily} />
-
-
-
         </div>
     </div>
 
