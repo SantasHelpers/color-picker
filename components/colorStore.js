@@ -14,7 +14,7 @@ class ColorStore {
         color3: '#eaf2f8',
         color4: '#eaf2f8',
         color5: '#eaf2f8',
-        complimentary: [],
+        complimentary: ['#24E2E2', '#D82ED5'],
         sideBarBaseColor: '#eaf2f8',
 
         triad: ['#24E2E2', '#D82ED5', '#D8452E'],
