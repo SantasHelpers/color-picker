@@ -22,7 +22,7 @@ class App extends React.Component {
       colorFamilies: [],
       allFamilies: [],
       appClass: 'app-main-full',
-      sidebarClass: 'app-sidebar-hidden',
+      sidebarClass: 'app-sidebar',
       createClass: 'create-family-hidden'
     };
 

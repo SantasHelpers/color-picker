@@ -1,3 +1,5 @@
+import hsltohex from 'hsl-to-hex';
+
 var withinCircle = function(num) {
   num = num > 360 ? num - 360 : num;
   num = num < 0 ? num + 360 : num;
@@ -38,19 +40,19 @@ var RGBtoHSL = function(rgb) {
   h *= 360;
   s *= 100;
   l *= 100;
-  return [h, s, l];
+  return [Math.round(h),Math.round(s), Math.round(l)];
 };
 
 // console.log(RGBtoHSL([219, 39, 99]));
 
 var HSLtoRGB = function(hsl) {
-  h = h[0] / 100;
-  s = h[1] / 100;
-  l = h[2] / 100;
+  var h = hsl[0] / 360;
+  var s = hsl[1] / 100;
+  var l = hsl[2] / 100;
   var r, g, b;
 
   if (s === 0) {
-    r = g = b = l; // achromatic
+    var r = g = b = l; // achromatic
   } else {
     function hue2rgb(p, q, t) {
       if (t < 0) { t += 1; }
@@ -79,7 +81,7 @@ var componentToHex = function(c) {
   return hex.length === 1 ? '0' + hex : hex;
 };
 
-var RGBtoHex = function(r, g, b) {
+var RGBtoHEX = function(r, g, b) {
   return '#' + componentToHex(r) + componentToHex(g) + componentToHex(b);
 };
 
@@ -97,12 +99,13 @@ var HEXtoRGB = function(hex) {
 
 var complimentary = function(hsl) {
   var results = [];
-  results.push(hsl);
+  results.push(hsltohex(hsl[0],hsl[1],hsl[0]));
   var h = hsl[0];
 
   h = withinCircle(h + 180);
 
-  results.push([h, hsl[1], hsl[2]]);
+  // results.push([h, hsl[1], hsl[2]]);
+  results.push(hsltohex(h,hsl[1],hsl[2]));
   return results;
 };
 
@@ -113,16 +116,19 @@ var triad = function(hsl) {
   var s = hsl[1];
   var l = hsl[2];
   h = withinCircle(h);
-  results.push([
-    [h, s, l]
-  ]);
-  results.push(hsl);
-  h = withinCircle(h - 120);
-  results.push([h + 120, s, l]);
+
+  results.push(
+    hsltohex(h, s, l)
+  );
+  h+=120;
+  results.push(hsltohex(h,s,l));
+
+  h = withinCircle(h + 120);
+  results.push(hsltohex(h, s, l));
 
   return results;
 };
-
+// console.log(triad([193, 67, 28]));
 var analagous = function(hsl) {
   var results = [];
   //takes [h,s,l]
@@ -216,6 +222,18 @@ var warm = function(hsl) {
   var l = hsl[2];
 };
 
+var convertMatrix = function(array){
+  var results = [];
+  for (var i = 0; i < array.length; i++) {
+    var inner = [];
+    for (var j = 0; j < array[i].length; j++) {
+        inner.push(RGBtoHEX(HSLtoRGB(array[j][i])));
+    }
+    results.push(inner);
+  }
+}
+//
+
 // Helper for selecting font, currently unused!!!!!!
 // var c = document.getElementById('container');
 //
@@ -253,4 +271,4 @@ var warm = function(hsl) {
 //   c.appendChild(el);
 // }
 
-export {HEXtoRGB, RGBtoHSL};
+export {RGBtoHEX,HEXtoRGB, RGBtoHSL, rectangularTetrad, monochromatic, triad,complimentary,squareTetrad,analagous,splitComplimentary, convertMatrix};

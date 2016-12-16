@@ -85,8 +85,8 @@ var ColorFamilyInfoView = observer(class ColorFamilyInfoView extends React.Compo
 
     return (
       <div className="sidebar-content">
-        <h5>Click a Code to Copy!</h5>
-        <Button onClick={this.props.toggleSidebarOff}>Hide Sidebar</Button>
+
+
         <div className="color-family-info">
           {this.convertHexToRGB().map(function(color, index) {
             return <ColorInfoView color={color} key={index} index={index}/>;

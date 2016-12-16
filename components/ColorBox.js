@@ -1,6 +1,9 @@
 import React from 'react';
 import colorStore from './colorStore.js';
 import { observer } from 'mobx-react';
+import {RGBtoHEX, HEXtoRGB, RGBtoHSL, rectangularTetrad, monochromatic, triad,complimentary,squareTetrad,analagous,splitComplimentary, convertMatrix} from './colorCalcHelpers.js';
+import hexToHsl from 'hex-to-hsl';
+import hsltohex from 'hsl-to-hex';
 
 
 var ColorBox = observer(class ColorBox extends React.Component {
@@ -14,10 +17,20 @@ var ColorBox = observer(class ColorBox extends React.Component {
   }
 
   handleClick() {
-
+    console.log('handleclick');
+    var currentHSL = hexToHsl(this.props.style);
     colorStore.currentColor = this.props.style;
     console.log('Current Color: ', colorStore.currentColor);
-
+    console.log('compbeforeconvert', JSON.stringify(complimentary(currentHSL)));
+    colorStore.complimentary = complimentary(currentHSL);
+    colorStore.triad = triad(currentHSL);
+    console.log(triad(currentHSL));
+        // triad: = [];
+        // squareTetrad: = [];
+        // rectangularTetrad: = [];
+        // monochromatic: = [];
+        // analagous: = [];
+        // splitComplimentary: = [];
   }
 
   toggleHover() {

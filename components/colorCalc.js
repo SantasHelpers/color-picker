@@ -44,13 +44,13 @@ var RGBtoHSL = function(rgb) {
   return [h, s, l];
 }
 
-console.log(RGBtoHSL([219, 39, 99]));
+// console.log(RGBtoHSL([219, 39, 99]));
 
 var HSLtoRGB = function(hsl) {
   var h = hsl[0] / 100;
   var s = hsl[1] / 100;
   var l = hsl[2] / 100;
-  // console.log(h,s,l);
+  console.log(h,s,l);
   var r, g, b;
 
   if (s === 0) {
@@ -75,7 +75,7 @@ var HSLtoRGB = function(hsl) {
 
   return [r * 255, g * 255, b * 255];
 };
-console.log(HSLtoRGB([123, 67, 28]));
+// console.log(HSLtoRGB([123, 67, 28]));
 
 var componentToHex = function(c) {
   var hex = c.toString(16);
@@ -94,7 +94,6 @@ var HEXtoRGB = function(hex) {
   var b = parseInt(result[3], 16);
 
   // console.log([r, g, b]);
-  return [r,g,b]
 };
 
 // console.log(HEXtoRGB('#FFFFF1'));
@@ -244,4 +243,4 @@ module.exports.HEXtoRGB = HEXtoRGB;
 module.exports.HSLtoRGB = HSLtoRGB;
 module.exports.convertMatrix = convertMatrix;
 
-
+export {HEXtoRGB, RGBtoHSL, rectangularTetrad, monochromatic, triad,complimentary,squareTetrad,analagous,splitComplimentary, convertMatrix};
