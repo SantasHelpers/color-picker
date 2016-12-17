@@ -18,6 +18,7 @@ import { observer } from 'mobx-react';
 import { HEXtoRGB } from './colorCalcHelpers.js'
 import TriadRow from './TriadRow.js';
 import TetradRow from './TetradRow.js';
+import MonoChromeRow from './MonoChromeRow.js';
 
 //this app relies heavily on React Bootstrap
 //https://react-bootstrap.github.io/ for the documentation
@@ -155,6 +156,7 @@ var App = observer( class App extends React.Component {
             <ComplementaryRow />
             <TriadRow />
             <TetradRow />
+            <MonoChromeRow />
           </div>
         </div>
         <div className="app-sidebar"> {/*  changing this to "app-sidebar-hidden" will hide this */}
