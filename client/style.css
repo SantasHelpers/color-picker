@@ -61,6 +61,7 @@ body {
 
 
 .complementary-row {
+  margin: 10px auto;
   width: 80%;
   height: 90px;
   border-color: grey;
@@ -137,6 +138,7 @@ body {
 
 .color-grid {
   display: block;
+  margin: 10px auto;
 }
 
 .app-main-pallets {

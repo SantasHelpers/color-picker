@@ -182,7 +182,7 @@ var monochromatic = function(hsl) {
   var l = hsl[2];
 
   for (var i = 0; i <= 100; i += 25) {
-    results.push(hsltohex(h, s, i));
+    results.push(hsltohex(h, i, l));
   }
   return results;
 };
