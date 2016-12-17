@@ -103,11 +103,7 @@ var componentToHex = function(c) {
   return hex.length === 1 ? '0' + hex : hex;
 };
 
-<<<<<<< f5c3f1b7fc93669c5a5fa5d7e363986afed3d00b
-var RGBtoHEX = function(r, g, b) {
-=======
 var RGBtoHex = function([r, g, b]) {
->>>>>>> dynamically generate colors 4,5 in their absence
   return '#' + componentToHex(r) + componentToHex(g) + componentToHex(b);
 };
 
@@ -125,13 +121,14 @@ var HEXtoRGB = function(hex) {
 
 var complimentary = function(hsl) {
   var results = [];
-  results.push(hsltohex(hsl[0],hsl[1],hsl[0]));
+  results.push(hsltohex(hsl[0], hsl[1], hsl[2]));
+  // console.log(hsltohex(hsl[0), hsl[0), hsl[2))
   var h = hsl[0];
 
   h = withinCircle(h + 180);
 
   // results.push([h, hsl[1], hsl[2]]);
-  results.push(hsltohex(h,hsl[1],hsl[2]));
+  results.push(hsltohex(h, hsl[1], hsl[2]));
   return results;
 };
 
@@ -146,8 +143,8 @@ var triad = function(hsl) {
   results.push(
     hsltohex(h, s, l)
   );
-  h+=120;
-  results.push(hsltohex(h,s,l));
+  h += 120;
+  results.push(hsltohex(h, s, l));
 
   h = withinCircle(h + 120);
   results.push(hsltohex(h, s, l));
@@ -164,7 +161,7 @@ var analagous = function(hsl) {
 
   h = withinCircle(h - 30);
   results.push(hsltohex(h, s, l));
-    h = withinCircle(h + 30);
+  h = withinCircle(h + 30);
   results.push(hsltohex(h,s,l));
 
   h = withinCircle(h + 30);
@@ -222,7 +219,7 @@ var rectangularTetrad = function(hsl) {
   var temp = withinCircle(h - 30);
   results.push(hsltohex(temp, s, l));
 
-  results.push(hsltohex(hsl[0],hsl[1],hsl[2]));
+  results.push(hsltohex(hsl[0], hsl[1], hsl[2]));
 
   temp = withinCircle(h + 150);
   results.push(hsltohex(temp, s, l));
@@ -257,7 +254,7 @@ var convertMatrix = function(array){
     }
     results.push(inner);
   }
-}
+};
 
 var hexToGrayscale = function(hexColor) {
   var grayScaleConstants = [.3, .59, .11];
@@ -271,4 +268,4 @@ var hexToGrayscale = function(hexColor) {
   return grayscale;
 };
 
-export {RGBtoHEX, HEXtoRGB, RGBtoHSL, rectangularTetrad, monochromatic, triad,complimentary,squareTetrad,analagous,splitComplimentary, convertMatrix, hexToGrayscale, HSLtoRGB};
+export {RGBtoHex, HEXtoRGB, RGBtoHSL, rectangularTetrad, monochromatic, triad, complimentary, squareTetrad, analagous, splitComplimentary, convertMatrix, hexToGrayscale, HSLtoRGB};

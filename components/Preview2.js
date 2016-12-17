@@ -23,8 +23,8 @@ var Preview2 = ({location: {query}}) => {
     }
     var colorCount = i - 4;
     // Temporary for testing purposes - REMOVE THESE TWO LINES
-    // delete query.color4;
-    // delete query.color5;
+    delete query.color4;
+    delete query.color5;
 
     var temp1 = query.color1;
     var temp2 = query.color2;

@@ -131,7 +131,6 @@ var App = observer( class App extends React.Component {
   render() {
     var colorArray = [['#F9EBEA', '#FDEDEC'], ['#F2D7D5', '#FADBD8']];
 
-
     var styles = {
       background: {
         backgroundColor: colorStore.currentColor,
@@ -144,17 +143,12 @@ var App = observer( class App extends React.Component {
     return (
       <div className="app-body">
         <FilterBar className="app-nav" handleStateChange={this.handleStateChange} currentFilter={this.state.currentFilter} toggleSubmit={this.toggleSubmitForm} />
+
         <div className="app-main">
           <div className="color-grid">
             {colorList.map((colorRow, index) =>
                <ColorRow colors={colorRow} key={index} row={index}/>
             )}
-        <div>
-          <div className={this.state.appClass}>
-            <div className={this.state.createClass}>
-            <CreateYourOwn/>
-            </div>
-            <ColorFamilyView setCurrentFamily={this.setCurrentFamily.bind(this)} colorFamilies={/*[{color1:'#000000', color2:'#586F7C', color3:'#B8DBD9'}]*/this.state.colorFamilies} toggleSidebarOn={this.toggleSidebarOn}/>
           </div>
           <div className="app-main-pallets">
             <ComplementaryRow />
@@ -167,11 +161,10 @@ var App = observer( class App extends React.Component {
           <div className="passing-color" style={styles.background} />
             <ColorFamilyInfoView currentFamily={this.state.currentFamily} />
         </div>
-    </div>
-
+      </div>
     );
   }
-})
+});
 
 ReactDOM.render(
   <Router history={browserHistory}>
