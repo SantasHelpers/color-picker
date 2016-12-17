@@ -55,9 +55,9 @@ var ColorBox = observer(class ColorBox extends React.Component {
       var styles = {
         background: {
           backgroundColor: this.props.style,
-          top: this.props.row * this.state.width,
+          top: this.props.row * this.state.width * .8,
           left: this.props.col * this.state.width,
-          height: this.state.width,
+          height: this.state.width * .8,
           width: this.state.width
         }
       };
@@ -65,9 +65,9 @@ var ColorBox = observer(class ColorBox extends React.Component {
       var styles = {
         background: {
           backgroundColor: this.props.style,
-          top: this.props.row * this.state.width - this.state.width/2.66667,
-          left: this.props.col * this.state.width - this.state.width/2.66667,
-          height: this.state.width * 1.75,
+          top: (this.props.row * this.state.width - this.state.width/2.66667) * .8,
+          left: (this.props.col * this.state.width - this.state.width/2.66667),
+          height: this.state.width * 1.75 * .8,
           width: this.state.width * 1.75
         }
       };

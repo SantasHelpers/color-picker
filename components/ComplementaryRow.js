@@ -12,7 +12,7 @@ import constants from '../client/utils/constants.js';
 var ComplementaryRow = observer(class ComplementaryRow extends React.Component {
 
   constructor (props) {
-    super (props); 
+    super (props);
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -49,11 +49,11 @@ var ComplementaryRow = observer(class ComplementaryRow extends React.Component {
     var name1 = ntc.name(color1);
     var name2 = ntc.name(color2);
 
-    var styles = { style1: { left: '10%'} }; 
-     var styles2 = { style2: { left: '50%'} };
+    var styles = { style1: { left: '10%'} };
+     var styles2 = { style2: { left: '10%'} };
 
     return (
-      <div>
+      <div className="complementaryRow graybox">
         <h5 className="label">Complementary Color Gradient</h5>
         <div className="complementary-row">
 
@@ -74,7 +74,7 @@ var ComplementaryRow = observer(class ComplementaryRow extends React.Component {
             <ComplementaryBox col={4} lum={constants.lums[1]} color={color2} onClick={this.handleClick.bind(this)} />
             <ComplementaryBox col={5} lum={constants.lums[0]} color={color2} onClick={this.handleClick.bind(this)} />
           </div>
-        </div>  
+        </div>
       </div>
       );
   }

@@ -12,7 +12,7 @@ import constants from '../client/utils/constants.js';
 var TetradRow = observer(class TetradRow extends React.Component {
 
   constructor (props) {
-    super (props); 
+    super (props);
   }
 
   handleClick (color, lum) {
@@ -54,7 +54,7 @@ var TetradRow = observer(class TetradRow extends React.Component {
     var name4 = ntc.name(color4);
 
     return (
-      <div>
+      <div className="tetradRow graybox">
         <h5 className="label">Tetrad Color Gradient</h5>
         <div className="complementary-row">
           <div className="complementary-row-group">
@@ -62,28 +62,28 @@ var TetradRow = observer(class TetradRow extends React.Component {
               <ComplementaryBox col={1} lum={constants.quad[1]} color={color1} onClick={this.handleClick.bind(this)} />
               <ComplementaryBox col={2} lum={constants.quad[2]} color={color1} onClick={this.handleClick.bind(this)} />
               <ComplementaryBox col={3} lum={constants.quad[3]} color={color1} onClick={this.handleClick.bind(this)}/>
-          </div> 
-      
+          </div>
+
           <div className="complementary-row-group">
-            <h5 className="label-triadcolor" style={{'left': '40%'}}>{name1[1]}</h5>
+            <h5 className="label-triadcolor" style={{'left': '10%'}}>{name2[1]}</h5>
               <ComplementaryBox col={1} lum={constants.quad[1]} color={color2} onClick={this.handleClick.bind(this)} />
               <ComplementaryBox col={2} lum={constants.quad[2]} color={color2} onClick={this.handleClick.bind(this)} />
               <ComplementaryBox col={3} lum={constants.quad[3]} color={color2} onClick={this.handleClick.bind(this)}/>
-          </div> 
-  
+          </div>
+
           <div className="complementary-row-group">
-            <h5 className="label-triadcolor" style={{'left': '60%'}}>{name1[1]}</h5>
+            <h5 className="label-triadcolor" style={{'left': '10%'}}>{name3[1]}</h5>
               <ComplementaryBox col={1} lum={constants.quad[1]} color={color3} onClick={this.handleClick.bind(this)} />
               <ComplementaryBox col={2} lum={constants.quad[2]} color={color3} onClick={this.handleClick.bind(this)} />
               <ComplementaryBox col={3} lum={constants.quad[3]} color={color3} onClick={this.handleClick.bind(this)}/>
-          </div> 
+          </div>
 
           <div className="complementary-row-group">
-            <h5 className="label-triadcolor" style={{'left': '90%'}}>{name1[1]}</h5>
+            <h5 className="label-triadcolor" style={{'left': '10%'}}>{name4[1]}</h5>
               <ComplementaryBox col={1} lum={constants.quad[1]} color={color4} onClick={this.handleClick.bind(this)} />
               <ComplementaryBox col={2} lum={constants.quad[2]} color={color4} onClick={this.handleClick.bind(this)} />
               <ComplementaryBox col={3} lum={constants.quad[3]} color={color4} onClick={this.handleClick.bind(this)}/>
-          </div> 
+          </div>
         </div>
       </div>
       );
