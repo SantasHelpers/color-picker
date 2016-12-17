@@ -6,6 +6,7 @@ import ColorFamilyInfoView from './ColorFamilyInfoView.js';
 import CreateYourOwn from './CreateYourOwn.js';
 import FilterBar from './FilterBar.js';
 import Preview from './Preview.js';
+import Preview2 from './Preview2.js';
 import {Button, Grid} from 'react-bootstrap';
 import { Router, Route, Link, browserHistory } from 'react-router';
 import ColorBox from './ColorBox.js';
@@ -43,7 +44,7 @@ var App = observer( class App extends React.Component {
 
 
   //Filter display based on navbar choices
-  // we can probably remove this one all together since we are 
+  // we can probably remove this one all together since we are
   handleStateChange (color) {
     var filteredColorFamilies = [];
 
@@ -86,7 +87,7 @@ var App = observer( class App extends React.Component {
     this.setState({
       currentFamily: familyData
     });
-    console.log('these are app state', this.state);
+    // console.log('these are app state', this.state);
   }
 
   toggleSubmitForm() {
@@ -130,7 +131,6 @@ var App = observer( class App extends React.Component {
   render() {
     var colorArray = [['#F9EBEA', '#FDEDEC'], ['#F2D7D5', '#FADBD8']];
 
-
     var styles = {
       background: {
         backgroundColor: colorStore.currentColor,
@@ -141,8 +141,6 @@ var App = observer( class App extends React.Component {
 
 
     return (
-
-
       <div className="app-body">
         <FilterBar className="app-nav" handleStateChange={this.handleStateChange} currentFilter={this.state.currentFilter} toggleSubmit={this.toggleSubmitForm} />
 
@@ -162,20 +160,17 @@ var App = observer( class App extends React.Component {
         <div className="app-sidebar"> {/*  changing this to "app-sidebar-hidden" will hide this */}
           <div className="passing-color" style={styles.background} />
             <ColorFamilyInfoView currentFamily={this.state.currentFamily} />
-
-
-
         </div>
-    </div>
-
+      </div>
     );
   }
-})
+});
 
 ReactDOM.render(
   <Router history={browserHistory}>
     <Route path="/" component={App}/>
     <Route path="/preview" component={Preview}/>
+    <Route path="/preview2" component={Preview2}/>
   </Router>,
   document.getElementById('root')
 );

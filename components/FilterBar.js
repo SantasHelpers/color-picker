@@ -1,5 +1,6 @@
 import {Nav, Navbar, NavItem, NavDropdown, MenuItem, Button} from 'react-bootstrap';
 import React from 'react';
+import { Link } from 'react-router';
 
 var FilterBar = (props) => {
 
@@ -11,7 +12,7 @@ var FilterBar = (props) => {
     <div className="container">
     <Navbar fixedTop inverse>
       <Navbar.Brand>
-        <a href="/">Colorz.io</a>
+        <Link to={{pathname: '/'}}>Colorize.me</Link>
       </Navbar.Brand>
       <Nav activeKey='allTime' bsStyle='pills' onSelect={onFilterClick}>
       {/*
@@ -22,19 +23,21 @@ var FilterBar = (props) => {
           <MenuItem eventKey='allTime' title='menuItem'>All-Time</MenuItem>
         </NavDropdown>
         */}
-        <NavItem title='all' eventKey='all'>All</NavItem>
+        {/*
+          <NavItem title='all' eventKey='all'>All</NavItem>
         <NavItem title='blue' eventKey='blue'>Blue</NavItem>
         <NavItem title='red' eventKey='red'>Red</NavItem>
         <NavItem title='green' eventKey='green'>Green</NavItem>
+        */}
       </Nav>
       <Nav style={{paddingTop: '8px'}} pullRight>
-        <Button bsStyle="primary" onClick={props.toggleSubmit}>Create New</Button>
+        {/*<Button bsStyle="primary" onClick={props.toggleSubmit}>Create New</Button>*/}
       </Nav>
 
     </Navbar>
     </div>
   );
-}
+};
 
 
 
