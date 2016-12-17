@@ -12,15 +12,6 @@ body {
   position: absolute;
 }
 
-.fill-button {
-  margin: '1px';
-}
-
-.border-button {
-  margin: '1px';
-  border-width: '2px';
-}
-
 .box-hover {
   position: relative;
   top: -5px;
@@ -38,45 +29,25 @@ body {
   font-stretch: semi-expanded;
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
-
-.label-color {
-  position: absolute;
-  top: 12px;
-  color: gray;
-  font-size: 12px;
-  font-weight: 400;
-  font-stretch: semi-expanded;
-  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-}
-
-.label-triadcolor {
-  position: absolute;
-  top: 123px;
-  color: gray;
-  font-size: 12px;
-  font-weight: 400;
-  font-stretch: semi-expanded;
-  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-}
-
+  /*float:left;
+  display: inline-flex; */
+  /*
+  set top and left in our box factory
+  */
 
 .complementary-row {
-  width: 80%;
-  height: 90px;
+  width: 100%;
+  height: 70px;
   border-color: grey;
   border-width: 1px;
   border-style: solid;
   background-color: #abb2ba;
 }
 
-.complementary-row-group {
-  display: inline-block;
-  margin: 0 10px;
-}
 
 .complementary-box {
   position: relative;
-  top: 20px;
+  top: 10px;
   left: 50px;
   height: 50px;
   width: 50px;
@@ -85,14 +56,6 @@ body {
   border-width: 1px;
   border-color: white;
 }
-
-/*.complementary-box-name {
-  display: inline-block;
-  top: 5px;
-  left: 60px;
-  height: 60px;
-
-}*/
 
 .color-row {
   position: absolute;
