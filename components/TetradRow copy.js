@@ -1,4 +1,4 @@
-//TetradRow.js
+//MonoChromeRow.js
 import React from 'react';
 import ComplementaryBox from './ComplementaryBox.js';
 import colorStore from './colorStore.js';
@@ -9,7 +9,7 @@ import hextohsl from 'hex-to-hsl';
 import constants from '../client/utils/constants.js';
 
 
-var TetradRow = observer(class TetradRow extends React.Component {
+var MonoChromeRow = observer(class MonoChromeRow extends React.Component {
 
   constructor (props) {
     super (props); 
@@ -43,10 +43,10 @@ var TetradRow = observer(class TetradRow extends React.Component {
   }
 
   render () {
-    var color1 = colorStore.tetrad[0];
-    var color2 = colorStore.tetrad[1];
-    var color3 = colorStore.tetrad[2];
-    var color4 = colorStore.tetrad[3];
+    var color1 = colorStore.monochrome[0];
+    var color2 = colorStore.monochrome[1];
+    var color3 = colorStore.monochrome[2];
+    var color4 = colorStore.monochrome[3];
 
     var name1 = ntc.name(color1);
     var name2 = ntc.name(color2);
@@ -55,34 +55,14 @@ var TetradRow = observer(class TetradRow extends React.Component {
 
     return (
       <div>
-        <h5 className="label">Tetrad Color Gradient</h5>
+        <h5 className="label">MonoChromeColor Gradient</h5>
         <div className="complementary-row">
           <div className="complementary-row-group">
             <h5 className="label-triadcolor" style={{'left': '10%'}}>{name1[1]}</h5>
               <ComplementaryBox col={1} lum={constants.quad[1]} color={color1} onClick={this.handleClick.bind(this)} />
               <ComplementaryBox col={2} lum={constants.quad[2]} color={color1} onClick={this.handleClick.bind(this)} />
               <ComplementaryBox col={3} lum={constants.quad[3]} color={color1} onClick={this.handleClick.bind(this)}/>
-          </div> 
-      
-          <div className="complementary-row-group">
-            <h5 className="label-triadcolor" style={{'left': '40%'}}>{name1[1]}</h5>
-              <ComplementaryBox col={1} lum={constants.quad[1]} color={color2} onClick={this.handleClick.bind(this)} />
-              <ComplementaryBox col={2} lum={constants.quad[2]} color={color2} onClick={this.handleClick.bind(this)} />
-              <ComplementaryBox col={3} lum={constants.quad[3]} color={color2} onClick={this.handleClick.bind(this)}/>
-          </div> 
-  
-          <div className="complementary-row-group">
-            <h5 className="label-triadcolor" style={{'left': '60%'}}>{name1[1]}</h5>
-              <ComplementaryBox col={1} lum={constants.quad[1]} color={color3} onClick={this.handleClick.bind(this)} />
-              <ComplementaryBox col={2} lum={constants.quad[2]} color={color3} onClick={this.handleClick.bind(this)} />
-              <ComplementaryBox col={3} lum={constants.quad[3]} color={color3} onClick={this.handleClick.bind(this)}/>
-          </div> 
-
-          <div className="complementary-row-group">
-            <h5 className="label-triadcolor" style={{'left': '90%'}}>{name1[1]}</h5>
-              <ComplementaryBox col={1} lum={constants.quad[1]} color={color4} onClick={this.handleClick.bind(this)} />
-              <ComplementaryBox col={2} lum={constants.quad[2]} color={color4} onClick={this.handleClick.bind(this)} />
-              <ComplementaryBox col={3} lum={constants.quad[3]} color={color4} onClick={this.handleClick.bind(this)}/>
+              <ComplementaryBox col={3} lum={constants.quad[3]} color={color1} onClick={this.handleClick.bind(this)}/>
           </div> 
         </div>
       </div>
@@ -90,4 +70,4 @@ var TetradRow = observer(class TetradRow extends React.Component {
   }
 })
 
-export default TetradRow;
+export default MonoChromeRow;
