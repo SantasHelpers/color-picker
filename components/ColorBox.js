@@ -2,15 +2,17 @@ import React from 'react';
 import colorStore from './colorStore.js';
 import { observer } from 'mobx-react';
 
-import {RGBtoHEX, HEXtoRGB, RGBtoHSL, rectangularTetrad, monochromatic, triad, complimentary, squareTetrad, analagous, splitComplimentary, convertMatrix} from './colorCalcHelpers.js';
+import {RGBtoHEX, HEXtoRGB, RGBtoHSL, rectangularTetrad, monochromatic, triad,complimentary,squareTetrad,analagous,splitComplimentary, convertMatrix} from './colorCalcHelpers.js';
 import hexToHsl from 'hex-to-hsl';
 import hsltohex from 'hsl-to-hex';
+import $ from 'jquery';
 
 var ColorBox = observer(class ColorBox extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      hover: false
+      hover: false,
+      width: ($(window).width()*.65 / 20)
     }
     this.toggleHover = this.toggleHover.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -19,7 +21,6 @@ var ColorBox = observer(class ColorBox extends React.Component {
 
     handleClick() {
      console.log('handleclick');
-    //  console.log(this.props.style); //#4a235a
      var currentHSL = hexToHsl(this.props.style);
       colorStore.currentColor = this.props.style;
      // console.log('Current Color: ', colorStore.currentColor);
@@ -47,16 +48,34 @@ var ColorBox = observer(class ColorBox extends React.Component {
   }
 
   render () {
-    var styles = {
-      background: {
-        backgroundColor: this.props.style,
-        top: this.props.row * 20,
-        left: this.props.col * 20
-      }
-    };
+    // $(document).ready(function () {})
+    console.log('width:', this.state.width);
 
-    var classNormal = 'box';
+    if (!this.state.hover){
+      var styles = {
+        background: {
+          backgroundColor: this.props.style,
+          top: this.props.row * this.state.width * .8,
+          left: this.props.col * this.state.width,
+          height: this.state.width * .8,
+          width: this.state.width
+        }
+      };
+    } else {
+      var styles = {
+        background: {
+          backgroundColor: this.props.style,
+          top: (this.props.row * this.state.width - this.state.width/2.66667) * .8,
+          left: (this.props.col * this.state.width - this.state.width/2.66667),
+          height: this.state.width * 1.75 * .8,
+          width: this.state.width * 1.75
+        }
+      };
+    }
+
+    var currentClassName;
     var classHover = 'box-hover';
+    var classNormal = 'box';
     var currentClassName;
     if (!this.state.hover) {
       currentClassName = classNormal;

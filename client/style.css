@@ -1,15 +1,46 @@
+.app-main-pallets {
+  /*display: block;*/
+  top: 37vw;
+  width: 65vw;
+  position: absolute;
+}
+.complementary-row {
+  margin: 10px auto;
+  width: 100%;
+  height: 90px;
+  border-color: grey;
+  border-width: 1px;
+  border-style: solid;
+  background-color: #abb2ba;
+}
+
+.graybox {
+
+}
+
+.complementary-row-group {
+  display: inline-block;
+  margin: 0 10px;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+.complementary-box {
+  position: relative;
+  top: -15px;
+  height: 50px;
+  width: 50px;
+  display: inline-flex;
+  border-style: solid;
+  border-width: 1px;
+  border-color: white;
+}
+
 body {
   position: relative;
   width: 100%;
   height: 100%;
-}
-
-.box {
-  height: 20px;
-  width: 20px;
-  display: inline-block;
-  float: left;
-  position: absolute;
 }
 
 .fill-button {
@@ -21,71 +52,36 @@ body {
   border-width: '2px';
 }
 
-.box-hover {
-  position: relative;
-  top: -5px;
-  left: -10px;
-  height: 30px;
-  width: 30px;
-  border-radius: 2px;
-  z-index: 1000;
-}
 
 .label {
   color: gray;
-  font-size: 12px;
+  font-size: 22px;
   font-weight: 400;
   font-stretch: semi-expanded;
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
 .label-color {
-  position: absolute;
-  top: 12px;
+  position: relative;
+  top: -5px;
   color: gray;
-  font-size: 12px;
+  font-size: 18px;
   font-weight: 400;
   font-stretch: semi-expanded;
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
 .label-triadcolor {
-  position: absolute;
-  top: 123px;
+  position: relative;
+  top: -5px;
   color: gray;
-  font-size: 12px;
+  font-size: 18px;
   font-weight: 400;
   font-stretch: semi-expanded;
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
 
-.complementary-row {
-  margin: 10px auto;
-  width: 80%;
-  height: 90px;
-  border-color: grey;
-  border-width: 1px;
-  border-style: solid;
-  background-color: #abb2ba;
-}
-
-.complementary-row-group {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-.complementary-box {
-  position: relative;
-  top: 20px;
-  left: 50px;
-  height: 50px;
-  width: 50px;
-  display: inline-block;
-  border-style: solid;
-  border-width: 1px;
-  border-color: white;
-}
 
 /*.complementary-box-name {
   display: inline-block;
@@ -95,14 +91,33 @@ body {
 
 }*/
 
+.color-grid {
+  display: block;
+  margin: 10px auto;
+}
+
 .color-row {
+  display: flex;
+  justify-content: center;
   position: absolute;
   transition-duration: .375;
-  display: block;
   height: 20px; /* Need to set at same size as the box  */
 }
 
 
+.box {
+  display: inline-block;
+  float: left;
+  position: absolute;
+}
+
+.box-hover {
+  position: absolute;
+  border-radius: 4px;
+  border-style: ridge;
+  border-color: grey;
+  z-index: 1000;
+}
 .app-body {
   position: relative;
   width: 100%;
@@ -136,20 +151,10 @@ body {
   transition: all .3s ease-in-out;
 }
 
-.color-grid {
-  display: block;
-  margin: 10px auto;
-}
 
-.app-main-pallets {
-  /*display: block;*/
-
-  position: relative;
-  top: 210px;
-}
 
 .app-main {
-  top: 20vh;
+  top: -3vh;
   width: 70%;
   position: absolute;
   left: 20px;
@@ -217,48 +222,48 @@ body {
 #container {
   text-align: center;
   padding-top: 40px;
-	/*padding-left: 5%;
-	padding-right: 5%;*/
+  /*padding-left: 7%;
+  padding-right: 7%;*/
   overflow: hidden;
 }
 
 #center {
-	padding: 10px 20px;
-	width: 100%;
+  padding: 10px 20px;
+  width: 100%;
   background: #fff;
 }
 
 #footer {
-	clear: both;
+  clear: both;
 }
 
 #footer-wrapper {
   clear: both;
-	float: left;
-	position: relative;
-	width: 100%;
+  float: left;
+  position: relative;
+  width: 100%;
 }
 
 /*p {
-	color: #555;
+  color: #555;
 }*/
 
 nav ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 nav ul a {
-	color: darkgreen;
-	text-decoration: none;
+  color: darkgreen;
+  text-decoration: none;
 }
 
 #header, #footer {
   clear: both;
-	font-size: large;
-	padding: 0.3em;
-	background: #BCCE98;
+  font-size: large;
+  padding: 0.3em;
+  background: #BCCE98;
 }
 
 #columnholder {
@@ -285,7 +290,7 @@ nav ul a {
 }
 
 #center {
-	background: #BCCE98;
+  background: #BCCE98;
 }
 
 .app-calculated-pallets {
@@ -295,35 +300,3 @@ nav ul a {
   justify-content: center;
 }
 
-.swatchRow {
-  display: inline-block;
-}
-
-.swatchBox {
-  position: relative;
-  height: 100px;
-  width: 25%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-style: solid;
-  border-radius: 1px;
-  border-color: black;
-}
-
-.swatchBox-hover {
-  position: relative;
-/*  top: -5px;
-  left: -10px;
-  height: 30px;
-  width: 30px;*/
-  border-radius: 2px;
-  z-index: 1000;
-  /*float:left;
-  display: inline-flex; */
-  /*
-  set top and left in our box factory
-  */
-
-
-}

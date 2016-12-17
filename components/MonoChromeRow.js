@@ -12,7 +12,7 @@ import MonoChromeBox from './MonoChromeBox.js'
 var MonoChromeRow = observer(class MonoChromeRow extends React.Component {
 
   constructor (props) {
-    super (props); 
+    super (props);
   }
 
   handleClick (color, lum) {
@@ -48,7 +48,7 @@ var MonoChromeRow = observer(class MonoChromeRow extends React.Component {
     var name1 = ntc.name(color1);
 
     return (
-      <div>
+      <div className="monochromeRow graybox">
         <h5 className="label">MonoChromeColor Gradient</h5>
         <div className="complementary-row">
           <div className="complementary-row-group">
@@ -58,7 +58,7 @@ var MonoChromeRow = observer(class MonoChromeRow extends React.Component {
               <MonoChromeBox color={colorStore.monochrome[2]} onClick={this.handleClick.bind(this)} />
               <MonoChromeBox color={colorStore.monochrome[3]} onClick={this.handleClick.bind(this)} />
               <MonoChromeBox color={colorStore.monochrome[4]} onClick={this.handleClick.bind(this)} />
-          </div> 
+          </div>
         </div>
       </div>
       );

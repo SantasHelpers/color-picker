@@ -48,12 +48,12 @@ var TriadRow = observer(class TriadRow extends React.Component {
     var name2 = ntc.name(color2);
     var name3 = ntc.name(color3);
 
-    var styles = { style1: { left: '10%'} }; 
-    var styles2 = { style2: { left: '40%'} };
-    var styles3 = { style3: { left: '70%'} };
+    var styles = { style1: { left: '10%'} };
+    var styles2 = { style2: { left: '10%'} };
+    var styles3 = { style3: { left: '10%'} };
 
     return (
-      <div>
+      <div className="triadRow graybox">
         <h5 className="label">Triad Color Gradient</h5>
         <div className="complementary-row">
           <div className="complementary-row-group">
